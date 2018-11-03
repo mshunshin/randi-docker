@@ -50,12 +50,12 @@ docker build -t randi .
 ### 6 Run the OpenClinica Container
 
 ```
-docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --env-file ./env.list --network randi-net oc
+docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --env-file ./env.list --network randi-net randi
 ```
 
 ### 7 Access Openclinica
 
-Goto http://ip_address:82/RANDI2
+Goto http://ip_address:82/randi
 
 
 
