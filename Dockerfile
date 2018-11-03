@@ -13,7 +13,8 @@ ENV RANDI_VERSION 0.9.4
 RUN ["mkdir", "/tmp/randi"]
 COPY RANDI2_0.9.4.tar.gz /tmp/randi/randi.tar.gz
 
-RUN cd /tmp/randi && \
+RUN rm -rf $CATALINA_HOME/webapps/* && \
+    cd /tmp/randi && \
     tar -xvzf randi.tar.gz && \
     mkdir $RANDI_HOME && \
     cd $RANDI_HOME && \
