@@ -20,6 +20,7 @@ RUN cd /tmp/randi && \
     cp /tmp/randi/RANDI2_0.9.4/RANDI2_094.war ./randi.war && \
     unzip randi.war && cd ..
 
+COPY config.properties $RANDI_HOME/WEB-INF/classes/config.properties
 COPY create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 COPY run.sh /run.sh
     
