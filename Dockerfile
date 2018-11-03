@@ -20,8 +20,7 @@ RUN rm -rf $CATALINA_HOME/webapps/* && \
     cd $RANDI_HOME && \
     cp /tmp/randi/RANDI2_0.9.4/RANDI2_094.war ./randi.war && \
     unzip randi.war && \
-    mkdir /tomcat/randi.data/plugins && \
-    cp /tmp/randi/RANDI2_0.9.4/plugins/* /tomcat/randi.data/plugins/
+    rm randi.war
 
 COPY config.properties $RANDI_HOME/WEB-INF/classes/config.properties
 COPY create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
