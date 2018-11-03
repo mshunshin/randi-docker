@@ -6,19 +6,19 @@ FROM tomcat:7
 #MAINTAINER Matthew Shun-Shin (matthew.shunshin@gmail.com)
 LABEL maintainer "Matthew Shun-Shin (matthew.shunshin@gmail.com)"
 
-ENV RANDI2_HOME    $CATALINA_HOME/webapps/RANDI2
+ENV RANDI_HOME    $CATALINA_HOME/webapps/randi
 
-ENV RANDI2_VERSION 0.9.4
+ENV RANDI_VERSION 0.9.4
 
-RUN ["mkdir", "/tmp/randi2"]
-COPY RANDI2_0.9.4.tar.gz /tmp/randi2/randi2.tar.gz
+RUN ["mkdir", "/tmp/randi"]
+COPY RANDI2_0.9.4.tar.gz /tmp/randi/randi.tar.gz
 
-RUN cd /tmp/randi2 && \
-    tar -xvzf randi2.tar.gz && \
-    mkdir $RANDI2_HOME && \
-    cd $RANDI2_HOME && \
-    cp /tmp/randi2/RANDI2_0.9.4/RANDI2_094.war ./RANDI2.war && \
-    unzip RANDI2.war && cd ..
+RUN cd /tmp/randi && \
+    tar -xvzf randi.tar.gz && \
+    mkdir $RANDI_HOME && \
+    cd $RANDI_HOME && \
+    cp /tmp/randi/RANDI2_0.9.4/RANDI2_094.war ./randi.war && \
+    unzip randi.war && cd ..
 
 COPY create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
 COPY run.sh /run.sh
