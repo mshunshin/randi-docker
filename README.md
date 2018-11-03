@@ -14,6 +14,7 @@ docker volume create randi-data
 
 We hook it up to the randi-db-data and the randi-net
 Must be postgres 9.5
+Make sure you change the password in this command.
 
 ```
 docker run --name=randi-db -d -v randi-db-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=MASTER_PG_PASSWORD_CHANGE_ME --network randi-net postgres:9.5
@@ -21,6 +22,7 @@ docker run --name=randi-db -d -v randi-db-data:/var/lib/postgresql/data -e POSTG
 
 ### 3 Create RANDI Database
 Thid makes the database for RANDI and sets a password
+Make sure you change the password in this command.
 
 ```
 docker exec randi-db su postgres -c $'psql -c "CREATE ROLE randi LOGIN ENCRYPTED PASSWORD \'RANDI2_DB_PASSWORD_CHANGE_ME\' SUPERUSER NOINHERIT NOCREATEDB NOCREATEROLE" && psql -c "CREATE DATABASE randi WITH ENCODING=\'UTF8\' OWNER=randi" && echo "host all  randi    0.0.0.0/0  md5" >> $PGDATA/pg_hba.conf && /usr/lib/postgresql/$PG_MAJOR/bin/pg_ctl reload -D $PGDATA'
@@ -32,7 +34,7 @@ docker exec randi-db su postgres -c $'psql -c "CREATE ROLE randi LOGIN ENCRYPTED
 git clone https://github.com/mshunshin/randi-docker.git
 ```
 
-Then fix the env.list
+Then fix the env.list by changing the TOMCAT password.
 
 ```
 #Tomcat
@@ -47,15 +49,27 @@ TZ=UTC-1
 docker build -t randi .
 ```
 
-### 6 Run the OpenClinica Container
+### 6 Run the RANDI Container
 
 ```
 docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --env-file ./env.list --network randi-net randi
 ```
 
-### 7 Access Openclinica
+### 7 Access RANDI
 
 Goto http://ip_address:82/randi
+
+### 8 Answer the questions to set up the server
+The server address (which you enter on the 1st and 2nd page): randi-db
+Database type: postgres (not mysql).
+The database: randi
+The user: randi
+The pass: What you set it to.
+
+
+Fill in junk for the mail server (unless you have one).
+Make sure you set up a user (it lets you skip it, but I can't then see how to add one).
+
 
 
 
