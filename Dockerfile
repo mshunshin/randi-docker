@@ -8,17 +8,17 @@ LABEL maintainer "Matthew Shun-Shin (matthew.shunshin@gmail.com)"
 
 ENV RANDI_HOME    $CATALINA_HOME/webapps/randi
 
-ENV RANDI_VERSION 0.9.4
+ENV RANDI_VERSION 0.9.4.1
 
 RUN ["mkdir", "/tmp/randi"]
-COPY RANDI2_0.9.4.tar.gz /tmp/randi/randi.tar.gz
+COPY RANDI2_0.9.4.1.tar.gz /tmp/randi/randi.tar.gz
 
 RUN rm -rf $CATALINA_HOME/webapps/* && \
     cd /tmp/randi && \
     tar -xvzf randi.tar.gz && \
     mkdir $RANDI_HOME && \
     cd $RANDI_HOME && \
-    cp /tmp/randi/RANDI2_0.9.4/RANDI2_094.war ./randi.war && \
+    cp /tmp/randi/RANDI2_0.9.4.1/RANDI2_0941.war ./randi.war && \
     unzip randi.war && \
     rm randi.war
 
