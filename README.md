@@ -34,15 +34,6 @@ docker exec randi-db su postgres -c $'psql -c "CREATE ROLE randi LOGIN ENCRYPTED
 git clone https://github.com/mshunshin/randi-docker.git
 ```
 
-Then fix the env.list by changing the TOMCAT password.
-
-```
-#Tomcat
-TOMCAT_PASS=TOMCAT_PASSWORD_CHANGE_ME
-LOG_LEVEL=INFO
-TZ=UTC-1
-```
-
 ### 5 Build the RANDI Container
 
 ```
@@ -52,7 +43,7 @@ docker build -t randi .
 ### 6 Run the RANDI Container
 
 ```
-docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --env-file ./env.list --network randi-net randi
+docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --network randi-net randi
 ```
 
 ### 7 Access RANDI

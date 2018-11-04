@@ -22,8 +22,10 @@ RUN rm -rf $CATALINA_HOME/webapps/* && \
     unzip randi.war && \
     rm randi.war
 
-COPY config.properties $RANDI_HOME/WEB-INF/classes/config.properties
-COPY create_tomcat_admin_user.sh /create_tomcat_admin_user.sh
+COPY ./randi.config/tomcat-users.xml $CATALINA_HOME/conf/tomcat-users.xml
+COPY ./randi.config/config.properties $RANDI_HOME/WEB-INF/classes/config.properties
+COPY ./randi.config/logging.properties $RANDI_HOME/WEB-INF/classes/logging.properties
+
 COPY run.sh /run.sh
     
 RUN chmod +x /*.sh
