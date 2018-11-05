@@ -43,7 +43,7 @@ docker build -t randi .
 ### 6 Run the RANDI Container
 
 ```
-docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --network randi-net randi
+docker run --name=randi -d -v randi-data:/randi.data -p 82:8080 --network randi-net randi
 ```
 
 ### 7 Access RANDI
