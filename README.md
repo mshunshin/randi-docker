@@ -61,6 +61,8 @@ The pass: What you set it to.
 Fill in junk for the mail server (unless you have one).
 Make sure you set up a user (it lets you skip it, but I can't then see how to add one).
 
+plugin location: /randi.data/plugins/
+
 
 
 
