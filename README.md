@@ -43,7 +43,7 @@ docker build -t randi .
 ### 6 Run the RANDI Container
 
 ```
-docker run --name=randi -d -v randi-data:/tomcat/randi.data -p 82:8080 --network randi-net randi
+docker run --name=randi -d -v randi-data:/randi.data -p 82:8080 --network randi-net randi
 ```
 
 ### 7 Access RANDI
@@ -60,6 +60,8 @@ The pass: What you set it to.
 
 Fill in junk for the mail server (unless you have one).
 Make sure you set up a user (it lets you skip it, but I can't then see how to add one).
+
+plugin location: /randi.data/plugins/
 
 
 
