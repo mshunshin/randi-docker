@@ -5,7 +5,7 @@
 ### 1 Create the user network and a volume for the RANDI Database and RANDI Data
 
 ```
-docker network create --driver bridge randi-net
+docker network create --driver bridge trial-net
 docker volume create randi-db-data
 docker volume create randi-data
 ```
@@ -17,7 +17,7 @@ Must be postgres 9.5
 Make sure you change the password in this command.
 
 ```
-docker run --name=randi-db -d -v randi-db-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=MASTER_PG_PASSWORD_CHANGE_ME --network randi-net postgres:9.5
+docker run --name=randi-db -d -v randi-db-data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=MASTER_PG_PASSWORD_CHANGE_ME --network trial-net postgres:9.5
 ```
 
 ### 3 Create RANDI Database
@@ -43,7 +43,7 @@ docker build -t randi .
 ### 6 Run the RANDI Container
 
 ```
-docker run --name=randi -d -v randi-data:/randi.data -p 82:8080 --network randi-net randi
+docker run --name=randi -d -v randi-data:/randi.data -p 82:8080 --network trial-net randi
 ```
 
 ### 7 Access RANDI
