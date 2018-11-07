@@ -1,7 +1,7 @@
 # Dockerfile for RANDI2
 # * needs an additional postgres container
 
-FROM tomcat:7
+FROM tomcat:9-jre11
 
 #MAINTAINER Matthew Shun-Shin (matthew.shunshin@gmail.com)
 LABEL maintainer "Matthew Shun-Shin (matthew.shunshin@gmail.com)"
