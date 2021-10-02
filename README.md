@@ -63,6 +63,11 @@ Make sure you set up a user (it lets you skip it, but I can't then see how to ad
 
 plugin location: /randi.data/plugins/
 
+### 9 Moving the data
+Do not bother to move the data directory (as it doesn't contain the config). All the data is in the database.
+Just start it up on a new server and fill in the questions again.
+Obviously you do want to move the database (postgres) data.
+
 
 
 
